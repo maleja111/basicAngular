@@ -22,7 +22,7 @@
 `ng new basicAngular`
 
 - Configure this options
-![](https://cl.ly/460L1w061U0g/Pasted_Image_09_09_2016__21_16.png)
+![](/src/assets/images/install-options.png)
 
 - start service, Navigate to `http://localhost:4200/`.
 `ng serve`
