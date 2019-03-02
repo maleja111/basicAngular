@@ -1,9 +1,11 @@
-# BasicAngular
+# Basic Angular
+
+![](https://i.gifer.com/MJQT.gif)
 
 ## Check your Angular Cli version
-- Confirm if you already have installed Angular 6 or <
+- Angular 6 or <
 `ng -v`
-- Confirm if you already have installed Angular 7
+- Angular 7
 `ng version`
 
 ## Install Angular cli
@@ -24,15 +26,15 @@
 - Configure this options
 ![](/src/assets/images/install-options.png)
 
-- start service, Navigate to `http://localhost:4200/`.
-`ng serve`
+- Start service `ng serve`
+- Navigate to `http://localhost:4200/`
 
  ## Notes
 
 - If you have this error `node_modules/rxjs/internal/types.d.ts(81,44): error TS1005: ';' expected error after installation of Angular 6`
 - *Step 1* : Go to package.json and modify "rxjs": "^6.0.0" to "rxjs": "6.0.0"
 - *Step 2* `Run npm update` in your project.
-- If you need Install 
+- *Step 3* : 
 `npm cache verify`
 - Start service.
 `ng serve` 
