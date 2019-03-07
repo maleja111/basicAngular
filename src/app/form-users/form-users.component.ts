@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { UserService } from '../services/user/user.service';
 
 function emailMatcher(c: AbstractControl): { [key: string]: boolean } | null {
   const emailControl = c.get('email');
@@ -21,7 +22,7 @@ function emailMatcher(c: AbstractControl): { [key: string]: boolean } | null {
   styleUrls: ['./form-users.component.scss']
 })
 export class FormUsersComponent implements OnInit {
-  customerForm: FormGroup;
+  userForm: FormGroup;
   emailMessage: string;
 
   private validationMessages = {
@@ -29,9 +30,12 @@ export class FormUsersComponent implements OnInit {
     email: 'Please enter a valid email address.'
   };
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService
+  ) { }
   ngOnInit() {
-    this.customerForm = this.fb.group({
+    this.userForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
       emailGroup: this.fb.group({
@@ -45,7 +49,7 @@ export class FormUsersComponent implements OnInit {
       cardCvc: ['', [Validators.required]],
     });
 
-    const emailControl = this.customerForm.get('emailGroup.email');
+    const emailControl = this.userForm.get('emailGroup.email');
     emailControl.valueChanges.pipe(
     ).subscribe(
       value => this.setMessage(emailControl)
@@ -53,7 +57,7 @@ export class FormUsersComponent implements OnInit {
   }
 
   populateTestData(): void {
-    this.customerForm.patchValue({
+    this.userForm.patchValue({
       firstName: 'John',
       lastName: 'Black',
       emailGroup: { email: 'jack@gmail.com', confirmEmail: 'jack@gmail.com' },
@@ -66,7 +70,14 @@ export class FormUsersComponent implements OnInit {
   }
 
   save() {
-    console.log('Saved: ' + JSON.stringify(this.customerForm.value));
+    console.log('Saved: ' + JSON.stringify(this.userForm.value));
+    this.saveUser(this.userForm.value);
+
+  }
+
+  saveUser(data) {
+    this.userService.saveUser(data);
+    // .subscribe(() => { }, error => this.errorMessage = <any>error);
   }
 
   setMessage(c: AbstractControl): void {

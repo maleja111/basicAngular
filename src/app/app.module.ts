@@ -8,6 +8,9 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormUsersComponent } from './form-users/form-users.component';
 
+// Services
+import { UserService } from './services/user/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,7 @@ import { FormUsersComponent } from './form-users/form-users.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
