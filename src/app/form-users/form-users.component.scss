@@ -352,14 +352,20 @@ body {
     text-transform: uppercase;
     box-shadow: -3px 5px darken(skyblue, 10%);
     cursor: pointer;
-				transition: all 0s ease;
+		transition: all 0s ease;
 			
-				&.clicked {
-					position: relative;
-					top: 10px;
-					left: -3px;
-					box-shadow: 0px 0px;
-				}
+    &.clicked {
+      position: relative;
+      top: 10px;
+      left: -3px;
+      box-shadow: 0px 0px;
+    }
+    &:hover {
+      background-color: #76b2c9;
+    }
+    &:disabled {
+      background-color: #c2dfea;
+    }
    }
   &__center {
   text-align: center;
@@ -367,6 +373,16 @@ body {
   &__credit__car {
     margin: 40px 0px 20px 0px;
     }
+}
+.invalid-feedback{
+  color: red;
+  float: right;
+}
+.invalid-feedback-small{
+  font-style: inherit;
+  font-weight: bold;
+  color: red;
+  background-color: #fbfbfb8c;
 }
 
 .container {
@@ -383,6 +399,8 @@ body {
   background-color: transparent;
   color: #666;
   font-weight: bold;
+  text-align: right;
+  font-size: 0.9em;
 
     &:first-of-type {
       margin-bottom: 1em;
