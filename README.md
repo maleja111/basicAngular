@@ -14,10 +14,12 @@
 
 ## Update Angular cli
 - If you need Update 
-`ng update @angular/cli @angular/core`
+`npm install @angular/cli@latest`
 
 - You can verify if you have the 7 version
  `ng version`
+
+- more info: https://www.techiediaries.com/updating-angular-cli-projects/
 
  ## Create a New Project
 - Create your project 
